@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cicd-webapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cicd-webapp
+  template:
+    metadata:
+      labels:
+        app: cicd-webapp
+    spec:
+      containers:
+      - name: cicd-webapp
+        image: arpithapadigela/cicd-webapp:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
